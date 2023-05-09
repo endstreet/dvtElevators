@@ -26,11 +26,8 @@ namespace Elevators
                 //empty car
                 if (!Passengers.Any()) return ElevatorStatus.Idle;
                 DateTimeOffset? onboard = Passengers.Where(p => p.Boarded != null).Min(p => p.Boarded);
-                //boarded pax with destination level above elevel
-                if (Passengers.Where(p => p.Boarded == onboard && p.Boarded != null && p.ToLevel > Level).Any()) return ElevatorStatus.Up;
-                //off boarded pax waiting level above elevel
-                if (Passengers.Where(p => p.Boarded == null && p.FromLevel > Level).Any()) return ElevatorStatus.Up;
-
+                //boarded pax with destination level above elevel or non boarded pax waiting level above elevel
+                if (Passengers.Where(p => p.Boarded == null && p.FromLevel > Level || p.Boarded == onboard && p.Boarded != null && p.ToLevel > Level).Any()) return ElevatorStatus.Up;
                 //must be going down for other pax
                 return ElevatorStatus.Down;
             } 
