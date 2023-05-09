@@ -20,7 +20,8 @@ namespace Elevators
         /// <summary>
         /// Calculate status from the pax queue for this elevator
         /// </summary>
-        public ElevatorStatus Status { 
+        public ElevatorStatus Status
+        {
             get
             {
                 //empty car
@@ -30,7 +31,7 @@ namespace Elevators
                 if (Passengers.Where(p => p.Boarded == null && p.FromLevel > Level || p.Boarded == onboard && p.Boarded != null && p.ToLevel > Level).Any()) return ElevatorStatus.Up;
                 //must be going down for other pax
                 return ElevatorStatus.Down;
-            } 
+            }
         }
         public List<Passenger> Passengers;
 

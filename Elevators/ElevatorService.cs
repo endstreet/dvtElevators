@@ -8,7 +8,7 @@
         //Black friday queue
         public Queue<Passenger> PaxWaiting { get; set; } = new Queue<Passenger>();
         public List<Elevator> Elevators { get; set; }
-        
+
         public ElevatorService()
         {
             //initialize elevators
@@ -30,8 +30,8 @@
                 //Get the first elevator at min distance
                 Elevator elevator = elevatorCandidates.First();
                 //Add the passenger to the elevator
-                elevator.Passengers.Add(new Passenger(FromLevel, ToLevel,FromLevel == elevator.Level ? DateTime.Now : null));
-                
+                elevator.Passengers.Add(new Passenger(FromLevel, ToLevel, FromLevel == elevator.Level ? DateTime.Now : null));
+
             }
             else
             {

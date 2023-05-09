@@ -23,7 +23,7 @@ static IHostBuilder CreateHostBuilder()
     return Host.CreateDefaultBuilder()
         .ConfigureServices((_, services) =>
         {
-            services.AddScoped<IElevatorService,ElevatorService>();
+            services.AddScoped<IElevatorService, ElevatorService>();
             services.AddSingleton<App>();
         });
 }

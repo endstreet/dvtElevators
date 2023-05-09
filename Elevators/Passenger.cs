@@ -1,10 +1,8 @@
-﻿using System.ComponentModel;
-
-namespace Elevators
+﻿namespace Elevators
 {
     public class Passenger
     {
-        public Passenger(int fromLevel,int toLevel,DateTimeOffset? boarded = null)
+        public Passenger(int fromLevel, int toLevel, DateTimeOffset? boarded = null)
         {
             Id = new Guid();
             FromLevel = fromLevel;
