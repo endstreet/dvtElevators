@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Elevators.Tests
 {
@@ -6,10 +7,21 @@ namespace Elevators.Tests
     public class ElevatorServiceTests
     {
         private readonly ElevatorService _elevatorService;
-        public ElevatorServiceTests(IElevatorService elevatorService)
+
+        public ElevatorServiceTests()
         {
-            _elevatorService = (ElevatorService)elevatorService;
+            var services = new ServiceCollection();
+            services.AddSingleton<App>();
+            services.AddScoped<IElevatorService, ElevatorService>();
+            var serviceProvider = services.BuildServiceProvider();
+            _elevatorService = (ElevatorService)serviceProvider.GetService<IElevatorService>();
         }
+
+        //for brevity
+        //public ElevatorServiceTests(IElevatorService elevatorService)
+        //{
+        //    _elevatorService = (ElevatorService)elevatorService;
+        //}
 
         [TestMethod]
         public void AddPassengerTest()
