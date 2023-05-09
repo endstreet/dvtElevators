@@ -17,7 +17,7 @@
             {
                 if (string.IsNullOrEmpty(errorMessage))
                 {
-                    errorMessage = "Hint<int>  FromFloor,ToFloor or <Enter> to Move Elevator";
+                    errorMessage = "Hint: FromFloor,ToFloor or <Enter> to Move Elevator";
                 }
                 //Update console
                 Console.Clear();
@@ -29,8 +29,9 @@
                     Console.WriteLine($"{e.Id}\t\t{e.Level}\t{e.Status}\t{e.Passengers.Count}");
                 }
                 Console.WriteLine();
-                Console.WriteLine("Add Passenger");
                 Console.WriteLine(errorMessage);
+                Console.Write("Add Passenger:");
+                errorMessage = "";
 
                 try
                 {
@@ -56,7 +57,6 @@
 
                     _elevatorService.AddPassenger(fromFloor, toFloor);
                     _elevatorService.MoveElevator();
-                    errorMessage = "";
                 }
                 catch
                 {
