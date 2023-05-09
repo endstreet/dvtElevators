@@ -22,7 +22,7 @@
                 //Update console
                 Console.Clear();
                 Console.WriteLine("\x1b[3J");
-                Console.WriteLine("Elevator\tFloor\tStatus\tPassengers");
+                Console.WriteLine($"Elevator\tFloor\tStatus\tPassengers (Valid floors: 0-{Levels}).");
                 Console.WriteLine("--------\t-----\t------\t-----");
                 foreach (Elevator e in _elevatorService.Elevators)
                 {
