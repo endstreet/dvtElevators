@@ -43,9 +43,9 @@ namespace Elevators
                     var response = Console.ReadLine();
                     if (string.IsNullOrEmpty(response) || !response.Contains(','))
                     {
-                        if (_elevatorService.paxWaiting.Count > 0)
+                        if (_elevatorService.PaxWaiting.Count > 0)
                         {
-                            Passenger p = _elevatorService.paxWaiting.Dequeue();
+                            Passenger p = _elevatorService.PaxWaiting.Dequeue();
                             _elevatorService.AddPassenger(p.FromLevel, p.ToLevel);
                         }
 

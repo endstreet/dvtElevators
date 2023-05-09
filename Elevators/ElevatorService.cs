@@ -6,7 +6,7 @@
         const int MaxPassengers = 10;
         const int NoOfElevators = 3;
         //Black friday queue
-        public Queue<Passenger> paxWaiting { get; set; } = new Queue<Passenger>();
+        public Queue<Passenger> PaxWaiting { get; set; } = new Queue<Passenger>();
         public List<Elevator> Elevators { get; set; }
         
         public ElevatorService()
@@ -36,7 +36,7 @@
             else
             {
                 //Add the passenger to the Queue
-                paxWaiting.Enqueue(new Passenger(FromLevel, ToLevel));
+                PaxWaiting.Enqueue(new Passenger(FromLevel, ToLevel));
             }
         }
 
