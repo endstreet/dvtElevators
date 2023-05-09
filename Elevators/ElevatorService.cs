@@ -8,7 +8,6 @@
         //Black friday queue
         public Queue<Passenger> paxWaiting { get; set; } = new Queue<Passenger>();
         public List<Elevator> Elevators { get; set; }
-
         
         public ElevatorService()
         {
@@ -63,12 +62,6 @@
                 }
             }
         }
-
-        //private void UpdateConsole()
-        //{
-
-
-        //}
 
     }
 }
