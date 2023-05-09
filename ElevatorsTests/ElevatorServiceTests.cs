@@ -16,7 +16,7 @@ namespace Elevators.Tests
         public ElevatorServiceTests()
         {
             var services = new ServiceCollection();
-            services.AddSingleton<App>();
+            //services.AddSingleton<App>();
             services.AddScoped<IElevatorService, ElevatorService>();
             var serviceProvider = services.BuildServiceProvider();
             _elevatorService = serviceProvider.GetService<IElevatorService>() as ElevatorService;
