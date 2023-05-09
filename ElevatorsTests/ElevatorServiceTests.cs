@@ -13,7 +13,7 @@ namespace Elevators.Tests
     public class ElevatorServiceTests
     {
         private readonly ElevatorService _elevatorService;
-        public ElevatorServiceTests() 
+        public ElevatorServiceTests()
         {
             var services = new ServiceCollection();
             services.AddSingleton<App>();
@@ -28,6 +28,22 @@ namespace Elevators.Tests
             _elevatorService.AddPassenger(1, 2);
             int allPassengers = _elevatorService.Elevators.Sum(e => e.Passengers.Count);
             Assert.AreEqual(1, allPassengers);
+        }
+
+        [TestMethod()]
+        public void MoveEmptyElevatorTest()
+        {
+            
+            _elevatorService.MoveElevator();
+            Assert.IsTrue(!_elevatorService.Elevators.Where(e => e.Status != ElevatorStatus.Idle).Any());
+        }
+
+        [TestMethod()]
+        public void MoveSummonedElevatorTest()
+        {
+            _elevatorService.AddPassenger(1, 2);
+            _elevatorService.MoveElevator();
+            Assert.IsTrue(_elevatorService.Elevators.Where(e => e.Status != ElevatorStatus.Idle).Any());
         }
     }
 }
