@@ -63,5 +63,17 @@
             }
         }
 
+        /// <summary>
+        /// Alternative Closest distance calculation
+        /// Does not consider Capacity of Elevator
+        /// </summary>
+        /// <param name="FromLevel"></param>
+        /// <returns></returns>
+        //public int FindClosestElevatorDistance(int FromLevel)
+        //{
+        //    return (Elevators.Select(e => e.DistanceToLevel(FromLevel))).ToList().OrderBy(x => Math.Abs(x - FromLevel)).First(); ;
+
+        //}
+
     }
 }

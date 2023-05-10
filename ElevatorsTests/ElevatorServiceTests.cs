@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Elevators;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Elevators.Tests
@@ -14,7 +15,8 @@ namespace Elevators.Tests
             services.AddSingleton<App>();
             services.AddScoped<IElevatorService, ElevatorService>();
             var serviceProvider = services.BuildServiceProvider();
-            _elevatorService = (ElevatorService)serviceProvider.GetService<IElevatorService>();
+
+            _elevatorService = (ElevatorService)serviceProvider.GetService<IElevatorService>()!;
         }
 
         //for brevity
@@ -34,7 +36,7 @@ namespace Elevators.Tests
         [TestMethod()]
         public void MoveEmptyElevatorTest()
         {
-            
+
             _elevatorService.MoveElevator();
             Assert.IsTrue(!_elevatorService.Elevators.Where(e => e.Status != ElevatorStatus.Idle).Any());
         }
@@ -46,5 +48,11 @@ namespace Elevators.Tests
             _elevatorService.MoveElevator();
             Assert.IsTrue(_elevatorService.Elevators.Where(e => e.Status != ElevatorStatus.Idle).Any());
         }
+
+        //[TestMethod()]
+        //public void FindClosestElevatorDistanceTest()
+        //{
+        //    Assert.Fail();
+        //}
     }
 }

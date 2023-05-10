@@ -37,6 +37,8 @@ namespace Elevators
 
         /// <summary>
         /// Calculate the distance to a new passenger level
+        /// This Method considers the first stop where the Elevator direction matches the passenger direction
+        /// Can be moved to an extension method...
         /// </summary>
         /// <param name="fromLevel">Boarding level</param>
         /// <returns>Distance in steps</returns>
@@ -57,5 +59,7 @@ namespace Elevators
                     return Math.Abs(fromLevel - Level);
             }
         }
+
+
     }
 }
